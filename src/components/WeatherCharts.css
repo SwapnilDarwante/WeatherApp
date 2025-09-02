@@ -1,0 +1,122 @@
+.weather-charts {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.98) 100%);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: fadeInUp 0.8s ease-out 1s both;
+  height: fit-content;
+  min-height: 400px;
+  max-height: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.weather-charts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #ff6b6b);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.charts-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.chart-wrapper {
+  background: rgba(102, 126, 234, 0.02);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.chart-wrapper h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.chart-container {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+/* Chart.js customization */
+.chart-container canvas {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+  .charts-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-charts {
+    padding: 20px;
+  }
+  
+  .chart-wrapper {
+    padding: 15px;
+  }
+  
+  .chart-container {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .charts-title {
+    font-size: 1.3rem;
+  }
+  
+  .chart-wrapper h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-charts {
+    padding: 15px;
+  }
+  
+  .chart-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .charts-container {
+    gap: 20px;
+  }
+}
