@@ -1,0 +1,20 @@
+{
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "builds": [
+      {
+        "src": "./package.json",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "./dist/**/*",
+        "use": "@vercel/static"
+      }
+    ]
+  }
