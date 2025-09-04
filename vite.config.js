@@ -13,6 +13,6 @@ export default defineConfig({
     assetsDir: 'assets', // Default assets directory
     sourcemap: false,
   },
-  base: '/',
+  base: process.env.VITE_BASE_URL || '/',
   
 })
